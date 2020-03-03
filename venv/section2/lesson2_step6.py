@@ -21,7 +21,7 @@ try:
     rd_b.click()
 
     button = browser.find_element_by_tag_name("button")
-    browser.execute_script("return arguments[0].scrollIntoView(true);", button)
+    #browser.execute_script("return arguments[0].scrollIntoView(true);", button)
     button.click()
 finally:
     # успеваем скопировать код за 30 секунд
