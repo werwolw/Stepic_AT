@@ -10,6 +10,7 @@ try:
 
     x_element = browser.find_element_by_id("treasure")
     x = x_element.get_attribute("valuex")
+    print(x)
     y = calc(x)
     input = browser.find_element_by_id('answer')
     input.send_keys(y)
