@@ -1,7 +1,7 @@
 from selenium import webdriver
 import time
 
-link = "http://suninjuly.github.io/find_xpath_form"
+link = "http://master.boquar.com/login"
 
 try:
     browser = webdriver.Chrome()
