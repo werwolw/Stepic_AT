@@ -1,23 +1,8 @@
-from telnetlib import EC
-
 import pytest
 from selenium import webdriver
 import time
 import math
 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-
-
-@pytest.fixture(scope="function")
-def browser():
-    # answer = math.log(int(time.time()))
-    print("\nstart browser for test..")
-    browser = webdriver.Chrome()
-    browser.implicitly_wait(5)
-    yield browser
-    print("\nquit browser..")
-    browser.quit()
 
 
 @pytest.mark.parametrize('site', [
@@ -32,6 +17,7 @@ def browser():
 ])
 def test_search_Correct(browser, site):
     browser.get(site)
+    browser.implicitly_wait(5)
     # browser.find_element_by_css_selector(".textarea")
     answer = str(math.log(int(time.time())))
     input = browser.find_element_by_tag_name("textarea")

@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 
 
-
+"""
 @pytest.fixture(scope="function")
 def browser():
     print("\nstart browser for test..")
@@ -10,7 +10,7 @@ def browser():
     yield browser
     print("\nquit browser..")
     browser.quit()
-
+"""
 
 @pytest.mark.parametrize('language', ["ru", "en-gb"])
 class TestLogin:
