@@ -18,7 +18,7 @@ class ProductPage(BasePage):
         # получаем текст элементов для проверки
         item_name = self.browser.find_element(*ProductPageLocators.item_name).text
         message = self.browser.find_element(*ProductPageLocators.add_txt_msg).text
-        assert item_name in message, "Message of add to basket not compare with item name"
+        assert item_name == message, "Message of add to basket not compare with item name"
 
     def should_be_price_basket_alert(self):
         # Сначала проверяем, что элементы присутствуют на странице
@@ -29,7 +29,5 @@ class ProductPage(BasePage):
 
         # получаем текст элементов для проверки
         item_price = self.browser.find_element(*ProductPageLocators.price_item).text
-        print(item_price)
         message_pr_bkt = self.browser.find_element(*ProductPageLocators.price_bkt_msg).text
-        print(message_pr_bkt)
         assert item_price == message_pr_bkt, "Message of price basket not compare with item price"
