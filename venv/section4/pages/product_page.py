@@ -1,0 +1,35 @@
+from .base_page import BasePage
+from .locators import ProductPageLocators
+
+
+class ProductPage(BasePage):
+    def add_to_basket(self):
+        add_to_bkt = self.browser.find_element(*ProductPageLocators.btn_add_to_bkt)
+        add_to_bkt.click()
+        self.solve_quiz_and_get_code()
+
+    def should_be_add_item_alert(self):
+        # Сначала проверяем, что элементы присутствуют на странице
+        assert self.is_element_present(*ProductPageLocators.item_name), \
+            "Item name not presented"
+        assert self.is_element_present(*ProductPageLocators.add_txt_msg), \
+            "Message about adding is not presented"
+
+        # получаем текст элементов для проверки
+        item_name = self.browser.find_element(*ProductPageLocators.item_name).text
+        message = self.browser.find_element(*ProductPageLocators.add_txt_msg).text
+        assert item_name in message, "Message of add to basket not compare with item name"
+
+    def should_be_price_basket_alert(self):
+        # Сначала проверяем, что элементы присутствуют на странице
+        assert self.is_element_present(*ProductPageLocators.price_item), \
+            "Price item not presented"
+        assert self.is_element_present(*ProductPageLocators.price_bkt_msg), \
+            "Message about price of basket is not presented"
+
+        # получаем текст элементов для проверки
+        item_price = self.browser.find_element(*ProductPageLocators.price_item).text
+        print(item_price)
+        message_pr_bkt = self.browser.find_element(*ProductPageLocators.price_bkt_msg).text
+        print(message_pr_bkt)
+        assert item_price == message_pr_bkt, "Message of price basket not compare with item price"
