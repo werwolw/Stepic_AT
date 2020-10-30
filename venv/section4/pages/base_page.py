@@ -55,10 +55,13 @@ class BasePage():
         except NoAlertPresentException:
             print("No second alert presented")
 
-
     def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link = self.browser.find_element(*BasePageLocators.login_link)
         link.click()
 
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+        assert self.is_element_present(*BasePageLocators.login_link), "Login link is not presented"
+
+    def go_to_basket(self):
+        basket_button = self.browser.find_element(*BasePageLocators.basket_button)
+        basket_button.click()

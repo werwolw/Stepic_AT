@@ -42,3 +42,4 @@ class ProductPage(BasePage):
         assert self.is_disappeared(*ProductPageLocators.add_txt_msg), \
             "Success message is presented, but should not be"
 
+
